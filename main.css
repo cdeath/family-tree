@@ -1,0 +1,138 @@
+/* DEFAULTS */
+*, ::before, ::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+:root {
+  font-family: sans-serif;
+}
+
+html, body {
+  height: 100vh;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* STYLING */
+ul {
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  justify-content: center;
+  list-style: none;
+}
+
+li {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+div {
+  position: relative;
+  margin: 1rem;
+}
+
+p {
+  background: #ccc;
+  border-radius: 10rem;
+  padding: 1rem 2rem;
+}
+
+dl {
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  display: table;
+  flex-wrap: wrap;
+  background: #fff;
+  border: 1px solid #000;
+  padding: .5rem;
+  border-radius: 5px;
+  font-size: 14px;
+  transform: translate3d(-50%, -1rem, 0);
+  opacity: 0;
+  transition: opacity .3s linear;
+  will-change: opacity;
+}
+
+dl > div {
+  display: table-row;
+}
+
+dl > div > * {
+  display: table-cell;
+}
+
+dt {
+  font-weight: bold;
+  text-align: right;
+}
+
+dd {
+  padding-left: .5rem;
+}
+
+li > div:hover > dl {
+  opacity: 1;
+}
+
+/* CONNECTORS */
+li::before,
+li > div::before,
+li > div:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  background: #000;
+}
+
+li::before,
+li:first-child::before,
+li:last-child::before {
+  width: 1px;
+  left: 0;
+}
+
+li::before {
+  top: 0;
+  bottom: 0;
+}
+
+li:first-child::before {
+  top: 50%;
+  bottom: 0;
+}
+
+li:last-child::before {
+  top: 0;
+  bottom: 50%;
+}
+
+li > div::before,
+li > div::after {
+  top: 50%;
+  width: 1rem;
+  height: 1px;
+}
+
+li > div::before {
+  left: -1rem;
+}
+
+li > div::after {
+  right: -1rem;
+}
+
+body > ul > li::before,
+body > ul > li > div::before {
+  display: none;
+}
