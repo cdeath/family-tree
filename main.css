@@ -25,7 +25,6 @@ ul {
   height: 100%;
   display: flex;
   flex-flow: column;
-  align-items: flex-start;
   justify-content: center;
   list-style: none;
 }
